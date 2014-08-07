@@ -15,6 +15,7 @@ mv phpunit.phar /usr/local/bin/phpunit
 
 mkdir /var/www
 chown root:www-data /var/www
+echo "<?php phpinfo(); " > /var/www/index.php
 
 echo "
 server {
