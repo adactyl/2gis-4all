@@ -17,7 +17,7 @@ mkdir /var/www
 chown student:www-data /var/www
 echo "<?php phpinfo(); " > /var/www/index.php
 
-echo "
+cat <<EOT > /etc/nginx/fastcgi_params
 fastcgi_param   QUERY_STRING              $query_string;
 fastcgi_param   REQUEST_METHOD    $request_method;
 fastcgi_param   CONTENT_TYPE              $content_type;
@@ -43,9 +43,9 @@ fastcgi_param   HTTPS                           $https;
 
 # PHP only, required if PHP was built with --enable-force-cgi-redirect
 fastcgi_param   REDIRECT_STATUS         200;
-" > /etc/nginx/fastcgi_params
+EOT
 
-echo "
+cat <<EOT > /etc/nginx/sites-enabled/default
 server {
         listen   *:80;
         index index.html index.htm index.php;
@@ -78,6 +78,6 @@ server {
         }
         sendfile off;
 }
-" > /etc/nginx/sites-enabled/default
+EOT
 
 service nginx restart
