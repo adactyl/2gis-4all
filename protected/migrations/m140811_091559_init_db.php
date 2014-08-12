@@ -2,9 +2,20 @@
 
 class m140811_091559_init_db extends CDbMigration
 {
+    /*
 	public function up()
 	{
-        $this->createTable('user', array(
+	}
+
+	public function down()
+	{
+	}
+    */
+
+	// Миграция в транзакции: если произойдет ошибка, то всё не свалится.
+	public function safeUp()
+	{
+	    $this->createTable('user', array(
             'id' => 'pk',
             'username' => 'text',
             'password' => 'text',
@@ -12,33 +23,24 @@ class m140811_091559_init_db extends CDbMigration
             'red_date' => 'date',
             'visit_date' => 'date'
         ));
-        $this->createTable('ticket', array(
+        $this->createTable('firm', array(
             'id' => 'pk',
             'name' => 'text',
             'address' => 'text',
             'timetable' => 'json',
-            'contacts' => 'json'
+            'contacts' => 'json',
+            'owner' => 'int references "user"("id")'
         ));
+
         echo 'Migration up complete';
         return true;
 	}
 
-	public function down()
-	{
-		$this->dropTable('user');
-        $this->dropTable('ticket');
-        echo 'Migration down complete';
-		return true;
-	}
-
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
-
 	public function safeDown()
 	{
+        $this->dropTable('user');
+        $this->dropTable('firm');
+        echo 'Migration down complete';
+        return true;
 	}
-	*/
 }
