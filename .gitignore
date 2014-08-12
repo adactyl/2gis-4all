@@ -1,7 +1,6 @@
-backend/assets/*
-!backend/assets/.gitignore
-backend/protected/runtime/*
-!backend/protected/runtime/.gitignore
-backend/protected/data/*.db
-backecd/themes/classic/views/
-
+assets/*
+!assets/.gitignore
+protected/runtime/*
+!protected/runtime/.gitignore
+protected/data/*.db
+themes/classic/views/
