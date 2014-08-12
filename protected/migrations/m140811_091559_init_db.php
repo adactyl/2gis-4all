@@ -30,6 +30,10 @@ class m140811_091559_init_db extends CDbMigration
             'timetable' => 'json',
             'contacts' => 'json'
         ));
+        $this->addForeignKey(
+            'owner',
+            'firm',
+        );
         echo 'Migration up complete';
         return true;
 	}
