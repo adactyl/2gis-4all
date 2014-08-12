@@ -1,0 +1,137 @@
+body{
+ margin:0px;
+ font-family:Verdana ;
+}
+
+#map{
+position: absolute;
+ width:100%;
+ height:100%;
+}
+
+#formS {
+ margin-left:64px;
+ margin-top:25px;
+ position: fixed;
+ z-index: 20;
+ background:#454543;
+ width: 400px;
+ height: 80px;
+ border-radius:  5px;
+ box-shadow: 0 8px 10px 2px rgba(0,0,0,0.5);
+}
+#submit{
+  display: inline-block;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  color: rgb(205,216,228);
+  text-shadow: 0 -1px rgb(46,53,58);
+  text-decoration: none;
+  user-select: none;
+  line-height: 2em;
+  padding: 1px 1.2em;
+  outline: none;
+  border: 1px solid rgba(33,43,52,1);
+  border-radius: 3px;
+  background: rgb(81,92,102) linear-gradient(rgb(81,92,102), rgb(69,78,87));
+  box-shadow:
+  inset 0 1px rgba(101,114,126,1),
+  inset 0 0 1px rgba(140,150,170,.8),
+  0 1px rgb(83,94,104),
+  0 0 1px rgb(86,96,106);
+  height: 40px;
+  position: relative;
+  bottom: 5px;
+
+}
+#submit:active{
+
+	box-shadow:
+   inset 0 1px 3px rgba(0,10,20,.5),
+   0 1px rgb(83,94,104),
+   0 0 1px rgb(86,96,106);
+}
+
+#search{
+width: 230px;
+height: 35px;
+border-radius:  5px;
+margin-right: 20px;
+font-size: 14px;
+background: linear-gradient(to top left, #E4F9E5, #D2F7D3);
+position: relative;
+bottom: 5px;
+}
+#carta{
+	background: #ffffff;
+	position: fixed;
+	margin-left:64px;
+	margin-top:120px;
+	width: 350px;
+	height: 70%;	
+	background: #f6f2de;
+}	
+#org{
+text-align: center;
+box-shadow: 0 8px 10px 2px rgba(0,0,0,0.5);
+ outline: 0px  solid red;
+ border-radius:  5px ;
+}
+#baza{
+ outline: 0px  solid red;
+ width: 350px;
+ height: 89%;
+ box-shadow: 0 8px 10px 2px rgba(0,0,0,0.5);
+}
+img {
+	height: 40px;
+	width: 40px;
+	padding: 5px;
+	position:relative; 
+	top: 15px;
+}
+h2{
+	padding: 5px;
+}
+#cartaOtk{
+width: 350px;
+height: 70%;
+outline: 0px solid red;
+margin: 20px;
+background: #f6f2de;
+font-family:  Arial;
+padding: 6px;
+padding-left: 46px;
+box-shadow: 0 8px 10px 2px rgba(0,0,0,0.5);
+}
+#cardPlus{
+
+	position: relative;
+display: inline-block;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+padding: 5px 6px;
+max-width: 100%;
+border: 1px solid #5fabbe;
+border-bottom: 1px solid #559aab;
+border-radius: 2px;
+background: #64b4c8;
+color: #fff;
+vertical-align: middle;
+font: 12px/1 Helvetica,Arial,sans-serif;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+margin: 9px 0 0;
+
+}
+.font1{
+font-size: 10px;
+color: #B4B4AF;
+}
+.font2{
+	font: 22px 'SuisseCond','Arial Narrow',Helvetica,Arial,sans-serif;
+}
+ 
