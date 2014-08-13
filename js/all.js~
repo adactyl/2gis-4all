@@ -1,0 +1,24 @@
+$(document).ready(function() {
+    $('#formS').button(function() {
+        $.getJSON('http://localhost/api/search', {}, function(data) {
+            $('#baza').html('').append(data.name + '<br/>').append(data.address);
+        });
+        return false;
+    })
+});
+ <script>
+                function hidediv(get_id){
+                    div=document.getElementById(get_id);
+                    if(div.style.display !== "block") div.style.display = "block";
+
+                }
+            </script>
+
+
+<script>
+    function closer(get_id){
+        div=document.getElementById(get_id);
+        if(div.style.display !== "none") div.style.display = "none";
+
+    }
+</script>
