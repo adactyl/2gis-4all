@@ -2,10 +2,14 @@
 
 class ApiController extends Controller
 {
-	public function actionSearch($line)
-	{
-        //select * from firm where position('Площадь' in "name") + position('Площадь' in "address") > 0;
-        //position('Площадь' in "name") + position('Площадь' in "address")
+    public function actionSearch($line){
+        $api = $this->find_api($line);
+        $base = $this->find_db($line);
+        $results = array_merge($base,$api);
+        $this->renderJSON($results);
+    }
+
+    private function find_db($line){
         $connection = Yii::app()->db;
         $firms = $connection->createCommand()
             ->select('id, name, address')
@@ -13,44 +17,31 @@ class ApiController extends Controller
             ->where("position(:line in lower(name)) + position(:line in lower(address)) > 0",
                 array(':line' => mb_strtolower($line, 'utf-8')))
             ->queryAll();
-        /* Example
-        $this->renderJSON(array(
-            'id' => 123456789,
-            'name' => $firm,
-            'address' => 'Новосибирск, Красный проспект, 26',
-            'geo' => array(
-                'lon' => 54.123456,
-                'lat' => 55.123456
-            )));
+        return $firms;
+    }
 
-        */
-        $this->renderJSON($firms);
-	}
-
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
+    private function find_api($line){
+        $url="http://catalog.api.2gis.ru/2.0/catalog/branch/search?q=".$line."&region_id=1&key=rubdmw6768&fields=items.point,items.org";
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        $firm_list = curl_exec($ch);
+        curl_close($ch);
+        $firm_list=json_decode($firm_list);
+        if($firm_list->meta->code==200){
+            $count=$firm_list->result->total;
+            if ($count>10){
+                $count=10;
+            }
+            for ($i=0;$i<$count;$i++){//отчет с 0, переменная total с 1;
+                $list[$i]['id'] = $firm_list->result->items[$i]->org->id;
+                $list[$i]['lon'] = $firm_list->result->items[$i]->point->lon; //Долгота координаты
+                $list[$i]['lat'] = $firm_list->result->items[$i]->point->lat; //Широта координаты
+                $list[$i]['name'] = $firm_list->result->items[$i]->name;
+                $list[$i]['address'] = $firm_list->result->items[$i]->address_name;
+            }
+            return $list;
+        }
+        return array();
+    }
 }
