@@ -86,7 +86,7 @@ body{
 #organization{
     text-align: center;
     vertical-align: middle;
-    box-shadow: 0 8px 10px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
     border-radius:  5px ;
     height: 50px;
 
@@ -99,7 +99,6 @@ body{
     border-radius:  5px ;
     padding-top: 20px;
     padding-left: 20px;
-
 }
 img {
     height: 40px;
@@ -114,37 +113,18 @@ h2{
 }
 #cardOpen{
     width: 350px;
-    height: 70%;
-    outline: 0px solid red;
+    height: 738px;
     margin: 20px;
-    background: #f6f2de;
+    background: #f6f2de ;
     font-family:  Arial;
     padding: 6px;
+    padding-top: 0px;
     padding-left: 46px;
     box-shadow: 0 8px 10px 2px rgba(0,0,0,0.5);
-}
-#cardPlus{
-
-    position: relative;
-    display: inline-block;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 5px 6px;
-    max-width: 100%;
-    border: 1px solid #5fabbe;
-    border-bottom: 1px solid #559aab;
-    border-radius: 2px;
-    background: #64b4c8;
-    color: #fff;
-    vertical-align: middle;
-    font: 12px/1 Helvetica,Arial,sans-serif;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    margin: 9px 0 0;
-
+    position: absolute;
+    left: 120px;
+    top: 104px;
+    border-radius:  5px ;
 }
 .font1{
     font-size: 10px;
@@ -166,45 +146,40 @@ h2{
 
 .littleCard {
     padding: 10px 15px 12px 0;
-    border-bottom: 1px solid #CFCFCF;
+    border-bottom: 1px solid #CFCFCF ;
+    border-radius: 5px;
 }
 .littleCard:hover {
     padding: 10px 15px 12px 0;
-    background: #ADD8E6;
+    background: #ADD8E6 ;
+    cursor: pointer;
 }
-.miniCard__contentWrap {
-    position: relative;
-}
-.miniCard__header {
-    position: relative;
-    margin: 1px 0 4px 48px;
-    color: #079;
-}
-.miniCard__micro {
-    margin: 0 0 4px 48px;
-    color: #333;
-    font: 14px/16px Helvetica,Arial,sans-serif;
-}
+.littleCard_address {
 
-.miniCard__desc {
-    margin-left: 48px;
-}
-.miniCard__descAddress {
+    margin: 0 0 6px 48px;
     display: inline;
     color: #666;
-    font: 14px/17px Helvetica,Arial,sans-serif;
+    font: 16px/17px Helvetica,Arial;
 }
-.miniCard__headerTitle {
-    font: 14px Helvetica,Arial,sans-serif;
+.littleCard_icon {
+    position: relative;
+    top: 12px;
+    left: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: #828282 ;
+}
+.littleCard_name {
+    font: 16px Helvetica,Arial;
     color: #079;
     text-decoration: none;
+    position: relative;
+    left: 20px;
+    margin: 0 0 9px 2px;
 }
-.miniCard__icon {
-    position: absolute;
-    top: 93px;
-    left: 24px;
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    background: #828282;
+
+.cheat{
+    visibility: hidden;
+    position: relative;
 }
