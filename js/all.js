@@ -1,8 +1,16 @@
 $(document).ready(function() {
-    $('#formS').submit(function() {
+    $('.close').click(function(){
+        $('#card').hide();
+    });
+    $('#card').hide();
+    $('#searchForm').submit(function() {
+        $('#card').show();
+
         $.getJSON('http://localhost/api/search', {}, function(data) {
-            $('#baza').html('').append(data.name + '<br/>').append(data.address);
+            $('#cardField ').html('').append(data.name + '<br/>').append(data.address);
         });
         return false;
     })
+
 });
+

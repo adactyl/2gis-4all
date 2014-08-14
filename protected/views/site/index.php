@@ -4,20 +4,42 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<div id="map">
-    <div id="formS">
-        <form method="POST">
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo-2gis.png">
-            <input type="text" pattern="^[А-Яа-яЁё\s]+$" name="search" id="search"  autofocus placeholder="Введите организацию" >
-            <input type="submit" value="Поиск" id="submit" >
-        </form>
-    </div>
-</div>
 
-<div id="carta" class="carta">
-    <div id="org">
-        <h2>Организации</h2>
-    </div>
-    <div id="baza">
-    </div>
-</div>
+
+            <div id="searchForm">
+                <form method="POST">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo-2gis.png">
+
+                    <input type="text"  name="search"
+                           id="searchInput"  autofocus  placeholder="Введите организацию либо адрес"
+                           maxlength="500"  >
+
+                     <input type="submit" value="Поиск" id="searchSubmit">
+
+                </form>
+            </div>
+
+            <div id="map"> </div>
+
+
+
+
+
+                <div id="card">
+                    <div id="organization">
+                        <h2 class="font2">Организации</h2>
+
+                           <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/cross.png" class="close">
+                    </div>
+                    <div id="cardField ">
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
