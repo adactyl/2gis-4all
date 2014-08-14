@@ -13,6 +13,23 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     //Bind onClick to
+
+
+
+
+
+
+    $('.close1').click(function(){
+        //Hide search result on click
+        $('#cardOpen').hide();
+    });
+    //Hide search result on document load
+    $('#cardOpen').show();
+
+
+
+
+
     $('.close').click(function(){
         //Hide search result on click
         $('#card').hide();
@@ -20,10 +37,15 @@ $(document).ready(function() {
     //Hide search result on document load
     $('#card').hide();
 
+
     //onClick button "Search"
     $('#searchForm').submit(function() {
         //Show search result
         $('#card').show();
+
+
+
+
         //Work with api
         $.getJSON(
             'http://localhost/api/search',
