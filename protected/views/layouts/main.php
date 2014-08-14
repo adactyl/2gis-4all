@@ -30,7 +30,6 @@
     DG.control.location({position: 'bottomright'}).addTo(map);
     DG.control.scale().addTo(map);
     DG.control.ruler({position: 'bottomleft'}).addTo(map);
-    DG.marker([54.98, 82.89]).addTo(map).bindPopup('Выбрано!');
     });
     </script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/all.js"></script>

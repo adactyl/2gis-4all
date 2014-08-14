@@ -16,7 +16,7 @@ var onLittleCardRender = function(element, index, array){
         + '<div class="littleCard_name">' + element.name + '</div>'
         + '<div class="littleCard_address">' + element.address + '</div>'
         + '<div class="cheat">' + element.id + '</div></div>');
-
+    DG.marker([element.latitude, element.longitude]).addTo(map).bindPopup(element.name);
 }
 
 var onLittleCardClick = function(){
