@@ -28,7 +28,6 @@ $this->pageTitle=Yii::app()->name;
                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/cross.png" class="close">
                     </div>
                     <div id="cardField">
-                        jhsjkldhkdfjgh
                     </div>
 
                 </div>
