@@ -23,7 +23,7 @@ $this->pageTitle=Yii::app()->name;
 
                 <div id="card">
                     <div id="organization">
-                        <h2 class="font2">Организации</h2>
+                        <h2 class="font2" >Организации</h2 >
 
                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/cross.png" class="close">
                     </div>
@@ -37,7 +37,7 @@ $this->pageTitle=Yii::app()->name;
     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/cross.png" class="close1">
     <p class="font2"> Эвалар, сеть аптек</p>
     <p>Скидка 20% в выходные на всю продукцию компании «Эвалар»!
-        <a href="">Прочесть полностью</a></p>
+
 
     <p class="font1">Имеются противопоказания, необходимо ознакомиться с инструкцией по применению.</p>
 
