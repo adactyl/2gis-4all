@@ -92,6 +92,7 @@ body{
 
 }
 #cardField {
+    position: absolute;
     width: 330px;
     height:680px;
     box-shadow: 2px 8px 10px 2px rgba(0,0,0,0.5);
@@ -150,9 +151,7 @@ h2{
     color: #B4B4AF;
 }
 .font2{
-    font: 24px Roboto Condensed ;
-    vertical-align:
-
+    font: 24px Roboto Condensed;
 ;
 }
 .close{
@@ -163,3 +162,10 @@ h2{
     width: 30px;
     cursor: pointer;
     top:-2px;
+}
+
+.littleCard{
+    width: 230px;
+    height: 35px;
+    padding: 10px;
+}

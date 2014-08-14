@@ -21,22 +21,17 @@ $this->pageTitle=Yii::app()->name;
 
             <div id="map"> </div>
 
-
-
-
-
                 <div id="card">
                     <div id="organization">
                         <h2 class="font2">Организации</h2>
 
                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/cross.png" class="close">
                     </div>
-                    <div id="cardField ">
-
+                    <div id="cardField">
+                        jhsjkldhkdfjgh
                     </div>
 
                 </div>
-
 
 
 

@@ -1,11 +1,7 @@
+/*
+ * Example
 $(document).ready(function() {
-    $('.close').click(function(){
-        $('#card').hide();
-    });
-    $('#card').hide();
     $('#searchForm').submit(function() {
-        $('#card').show();
-
         $.getJSON('http://localhost/api/search', {}, function(data) {
             $('#cardField ').html('').append(data.name + '<br/>').append(data.address);
         });
@@ -13,4 +9,37 @@ $(document).ready(function() {
     })
 
 });
+*/
 
+$(document).ready(function() {
+    //Bind onClick to
+    $('.close').click(function(){
+        //Hide search result on click
+        $('#card').hide();
+    });
+    //Hide search result on document load
+    $('#card').hide();
+
+    //onClick button "Search"
+    $('#searchForm').submit(function() {
+        //Show search result
+        $('#card').show();
+        //Work with api
+        $.getJSON(
+            'http://localhost/api/search',
+            {
+                line: $('#searchInput').val()
+            },
+            //Successful function
+            function(data) {
+                $('#cardField').html('').append(data.length + ' records was found' + '<br/>');
+                data.forEach(function(element, index, array){
+                    $('#cardField').append('<div class="littleCard">'
+                        + 'id = ' + element.id + '<br/>'
+                        + 'name = ' + element.name + '<br/>'
+                        + 'address = ' + element.address  + '</div>');
+                });
+            });
+        return false;
+    })
+});
