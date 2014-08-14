@@ -114,7 +114,7 @@ h2{
 }
 #cardOpen{
     width: 350px;
-    height: 733px;
+    height: 738px;
     margin: 20px;
     background: #f6f2de;
     font-family:  Arial;
@@ -125,6 +125,7 @@ h2{
     position: absolute;
     left: 120px;
     top: 104px;
+    border-radius:  5px ;
 
 }
 
@@ -141,16 +142,16 @@ h2{
     position: absolute;
     bottom: 180px;
     left: 310px;
-    height: 30px;
-    width: 30px;
+    height: 15px;
+    width: 15px;
     cursor: pointer;
-    top:-2px;
+
 }
 .close1{
     bottom: 90px;
-    left: 300px;
-    height: 30px;
-    width: 30px;
+    left: 320px;
+    height: 15px;
+    width: 15px;
     cursor: pointer;
 }
 
