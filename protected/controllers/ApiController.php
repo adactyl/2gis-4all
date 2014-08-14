@@ -38,6 +38,7 @@ class ApiController extends Controller
                 $list[$i]['lon'] = $firm_list->result->items[$i]->point->lon; //Долгота координаты
                 $list[$i]['lat'] = $firm_list->result->items[$i]->point->lat; //Широта координаты
                 $list[$i]['name'] = $firm_list->result->items[$i]->name;
+                $list[$i]['address'] = $firm_list->result->items[$i]->address_name;
             }
             return $list;
         }
