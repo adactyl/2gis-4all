@@ -6,15 +6,15 @@ $this->pageTitle=Yii::app()->name;
 
 
 
-            <div id="formS">
+            <div id="searchForm">
                 <form method="POST">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo-2gis.png">
 
                     <input type="text"  name="search"
-                           id="search"  autofocus  placeholder="Введите организацию либо адрес"
+                           id="searchInput"  autofocus  placeholder="Введите организацию либо адрес"
                            maxlength="500"  >
 
-                     <input type="submit" value="Поиск" id="submit">
+                     <input type="submit" value="Поиск" id="searchSubmit">
 
                 </form>
             </div>
@@ -23,20 +23,20 @@ $this->pageTitle=Yii::app()->name;
 
 
 
-            <div id="test_div" style="display:block;">
 
-                <div id="carta" class="carta">
-                    <div id="org">
+
+                <div id="card">
+                    <div id="organization">
                         <h2 class="font2">Организации</h2>
 
                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/cross.png" class="close">
                     </div>
-                    <div id="baza">
-                        <div id="minCarta"></div>
+                    <div id="cardField ">
+
                     </div>
 
                 </div>
-            </div>
+
 
 
 
