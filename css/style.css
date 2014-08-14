@@ -164,8 +164,47 @@ h2{
     top:-2px;
 }
 
-.littleCard{
-    width: 230px;
-    height: 35px;
-    padding: 10px;
+.littleCard {
+    padding: 10px 15px 12px 0;
+    border-bottom: 1px solid #CFCFCF;
+}
+.littleCard:hover {
+    padding: 10px 15px 12px 0;
+    background: #ADD8E6;
+}
+.miniCard__contentWrap {
+    position: relative;
+}
+.miniCard__header {
+    position: relative;
+    margin: 1px 0 4px 48px;
+    color: #079;
+}
+.miniCard__micro {
+    margin: 0 0 4px 48px;
+    color: #333;
+    font: 14px/16px Helvetica,Arial,sans-serif;
+}
+
+.miniCard__desc {
+    margin-left: 48px;
+}
+.miniCard__descAddress {
+    display: inline;
+    color: #666;
+    font: 14px/17px Helvetica,Arial,sans-serif;
+}
+.miniCard__headerTitle {
+    font: 14px Helvetica,Arial,sans-serif;
+    color: #079;
+    text-decoration: none;
+}
+.miniCard__icon {
+    position: absolute;
+    top: 93px;
+    left: 24px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #828282;
 }
