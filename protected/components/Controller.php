@@ -27,7 +27,7 @@ class Controller extends CController
     protected function renderJSON($data)
     {
         $this->layout=false;
-        header('Content-Type: application/json; charset="UTF-8"');
+        header('Content-Type: application/json; charset="UTF-8";Access-Control-Allow-Origin: *');
         echo CJSON::encode($data);
         Yii::app()->end();
     }
