@@ -62,7 +62,7 @@ $(document).ready(function() {
         //Show search result
         $('#card').show();
         var methodParams = {line:$('#searchInput').val()},
-            apiUrl = 'http://10.54.71.117/api/search';
+            apiUrl = 'http://localhost/api/search';
         $.getJSON(apiUrl, methodParams, onSuccessJson);
         return false;
     })
