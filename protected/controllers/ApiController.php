@@ -12,7 +12,7 @@ class ApiController extends Controller
     private function find_db($line){
         $connection = Yii::app()->db;
         $firms = $connection->createCommand()
-            ->select('id, name, address')
+            ->select('id, name, address, latitude, longitude')
             ->from('firm')
             ->where("position(:line in lower(name)) + position(:line in lower(address)) > 0",
                 array(':line' => mb_strtolower($line, 'utf-8')))
@@ -35,8 +35,8 @@ class ApiController extends Controller
             }
             for ($i=0;$i<$count;$i++){//отчет с 0, переменная total с 1;
                 $list[$i]['id'] = $firm_list->result->items[$i]->org->id;
-                $list[$i]['lon'] = $firm_list->result->items[$i]->point->lon; //Долгота координаты
-                $list[$i]['lat'] = $firm_list->result->items[$i]->point->lat; //Широта координаты
+                $list[$i]['longitude'] = $firm_list->result->items[$i]->point->lon; //Долгота координаты
+                $list[$i]['latitude'] = $firm_list->result->items[$i]->point->lat; //Широта координаты
                 $list[$i]['name'] = $firm_list->result->items[$i]->name;
                 $list[$i]['address'] = $firm_list->result->items[$i]->address_name;
             }
