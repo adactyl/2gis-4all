@@ -27,9 +27,11 @@
     "zoom": 12
     });
 
-    DG.control.location({position: 'bottomright'}).addTo(map);
+    //DG.control.location({position: 'bottomright'}).addTo(map);
     DG.control.scale().addTo(map);
-    DG.control.ruler({position: 'bottomleft'}).addTo(map);
+    DG.control.Fullscreen().removeFrom(map);
+    DG.control.Zoom().setPosition('topright');
+    //DG.control.ruler({position: 'bottomleft'}).addTo(map);
     });
     </script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/all.js"></script>

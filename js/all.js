@@ -22,9 +22,13 @@ var onLittleCardRender = function(element, index, array){
 var onLittleCardClick = function(){
     if($('body').find('#cardOpen').length === 0){
         $('body').append('<div id="cardOpen">New. id = ' + $(this).find('.cheat').html() + '</div>');
+        $('#cardOpen').click(function(){
+            this.remove();
+        });
     }
     else{
         $('#cardOpen').html('').append('Old. id = ' + $(this).find('.cheat').html());
+
     }
     /*var apiUrl = 'http://localhost/api/fullInfoById',
         methodParams = {'id': $(this).find('.cheat').html()};
@@ -38,7 +42,7 @@ var onSuccessJson = function(data){
     //ToDo: Отображать после организаций серым шрифтом. Переделать костыль
     $('#cardField').html('');
     $('.fontAmount').html('');
-    $('.font2').append('<span class="fontAmount">  Найдено:' + data.length  + '</span>');
+    $('.font2').append('<span class="fontAmount">  ' + data.length  + '</span>');
     data.forEach(onLittleCardRender);
     $('.littleCard').click(onLittleCardClick);
 }
