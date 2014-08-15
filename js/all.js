@@ -43,13 +43,14 @@ var onSuccessJson = function(data){
     $('#cardField').html('');
     $('.fontAmount').html('');
     $('.font2').append('<span class="fontAmount">  ' + data.length  + '</span>');
+
     data.forEach(onLittleCardRender);
     $('.littleCard').click(onLittleCardClick);
 }
 
 
 $(document).ready(function() {
-
+    //ToDo: рефакторинг
     $('.close').click(function(){
         //Hide search result on click
         $('#card').hide();
@@ -60,8 +61,13 @@ $(document).ready(function() {
     //onClick button "Search"
     $('#searchForm').submit(function() {
         //Show search result
+        var searchLine = $('#searchInput').val().trim();
+        if(searchLine === ''){
+            $('#searchInput').val('');
+            return false;
+        }
         $('#card').show();
-        var methodParams = {line:$('#searchInput').val()},
+        var methodParams = {line: searchLine},
             apiUrl = 'http://localhost/api/search';
         $.getJSON(apiUrl, methodParams, onSuccessJson);
         return false;
