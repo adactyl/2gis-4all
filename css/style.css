@@ -78,7 +78,7 @@ body{
     margin-left:64px;
     margin-top:120px;
     width: 350px;
-    height:85%;
+    height:78%;
     background: #f6f2de;
     border-radius:  5px ;
 
@@ -94,13 +94,14 @@ body{
 }
 #cardField {
     position: absolute;
-    width: 330px;
-    height:85%;
+    width: 350px;
+    height:90%;
     box-shadow: 2px 8px 10px 2px rgba(0,0,0,0.5);
     border-radius:  5px ;
     padding-top: 20px;
-    padding-left: 20px;
+
     overflow-x: hidden;
+
 }
 img {
     height: 40px;
@@ -157,7 +158,7 @@ h2{
 .littleCard {
     padding: 10px 15px 12px 0;
     border-bottom: 1px solid #CFCFCF ;
-    border-radius: 5px;
+
 }
 .littleCard:hover {
     padding: 10px 15px 12px 0;
@@ -185,8 +186,9 @@ h2{
     color: #079;
     text-decoration: none;
     position: relative;
-    left: 20px;
+    left: 25px;
     margin: 0 0 9px 2px;
+    padding-right: 15px;
 }
 
 .cheat{
