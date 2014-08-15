@@ -35,8 +35,10 @@ var onLittleCardClick = function(){
 }
 
 var onSuccessJson = function(data){
-    //ToDo: Отображать после организаций серым шрифтом
-    $('#cardField').html('').append('Найдено: ' + data.length + '<br/>');
+    //ToDo: Отображать после организаций серым шрифтом. Переделать костыль
+    $('#cardField').html('');
+    $('.fontAmount').html('');
+    $('.font2').append('<span class="fontAmount">  Найдено:' + data.length  + '</span>');
     data.forEach(onLittleCardRender);
     $('.littleCard').click(onLittleCardClick);
 }
@@ -56,7 +58,7 @@ $(document).ready(function() {
         //Show search result
         $('#card').show();
         var methodParams = {line:$('#searchInput').val()},
-            apiUrl = 'http://localhost/api/search';
+            apiUrl = 'http://10.54.71.117/api/search';
         $.getJSON(apiUrl, methodParams, onSuccessJson);
         return false;
     })
