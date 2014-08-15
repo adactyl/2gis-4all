@@ -35,7 +35,8 @@ var onLittleCardClick = function(){
 }
 
 var onSuccessJson = function(data){
-    $('#cardField').html('').append(data.length + ' records was found' + '<br/>');
+    //ToDo: Отображать после организаций серым шрифтом
+    $('#cardField').html('').append('Найдено: ' + data.length + '<br/>');
     data.forEach(onLittleCardRender);
     $('.littleCard').click(onLittleCardClick);
 }
