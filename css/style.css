@@ -135,7 +135,7 @@ h2{
     color: #B4B4AF;
 }
 .font2{
-    font: 24px Roboto Condensed;
+    font: 24px "Roboto Condensed";
 ;
 }
 
@@ -190,7 +190,7 @@ h2{
     background: #828282 ;
 }
 .littleCard_name {
-    font: 16px Helvetica,Arial;
+    font: 16px "Roboto Condensed";
     color: #079;
     text-decoration: none;
     position: relative;
