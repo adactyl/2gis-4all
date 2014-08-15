@@ -24,7 +24,7 @@
     DG.then(function () {
     map = DG.map('map', {
     "center": [55.03,82.92],
-    "zoom": 15
+    "zoom": 12
     });
 
     DG.control.location({position: 'bottomright'}).addTo(map);

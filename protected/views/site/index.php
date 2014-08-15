@@ -12,8 +12,8 @@ $this->pageTitle=Yii::app()->name;
 
                     <input type="text"  name="search"
                            id="searchInput"  autofocus  placeholder="Введите организацию либо адрес"
-                           maxlength="500"  pattern="^[0-9-A-Za-zА-А-Яа-яЁё\s]{3,}"
-                           title="не используйте символы и пишите больше 3х букв епта:3">
+                           maxlength="500"  pattern="[0-9-A-Za-zА-Яа-яЁё\s]{3,}"
+                           title="не используйте символы и пишите больше 3х букв ">
 
                      <input type="submit" value="Поиск" id="searchSubmit">
 
