@@ -21,6 +21,7 @@ class ApiController extends Controller
     }
 
     private function find_api($line){
+        $max_answer_count = 20;
         $url="http://catalog.api.2gis.ru/2.0/catalog/branch/search?q=".$line."&region_id=1&key=rubdmw6768&fields=items.point,items.org";
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,$url);
@@ -30,8 +31,8 @@ class ApiController extends Controller
         $firm_list=json_decode($firm_list);
         if($firm_list->meta->code==200){
             $count=$firm_list->result->total;
-            if ($count>10){
-                $count=10;
+            if ($count>$max_answer_count){
+                $count=$max_answer_count;
             }
             for ($i=0;$i<$count;$i++){//отчет с 0, переменная total с 1;
                 $list[$i]['id'] = $firm_list->result->items[$i]->org->id;
