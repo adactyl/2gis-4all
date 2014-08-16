@@ -8,3 +8,5 @@ $ cat nginx.conf > /etc/nginx/sites-enabled/default
 $ service nginx restart
 $ exit
 ```
+
+[demo]http://178.62.185.163/
