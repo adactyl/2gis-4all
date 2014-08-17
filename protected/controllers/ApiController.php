@@ -36,10 +36,14 @@ class ApiController extends Controller
             }
             for ($i=0;$i<$count;$i++){//отчет с 0, переменная total с 1;
                 $list[$i]['id'] = $firm_list->result->items[$i]->org->id;
-                $list[$i]['longitude'] = $firm_list->result->items[$i]->point->lon; //Долгота координаты
-                $list[$i]['latitude'] = $firm_list->result->items[$i]->point->lat; //Широта координаты
+                if($firm_list->result->items[$i]->point != null){
+			$list[$i]['longitude'] = $firm_list->result->items[$i]->point->lon; //Долгота
+                	$list[$i]['latitude'] = $firm_list->result->items[$i]->point->lat; //Широта
+		}
                 $list[$i]['name'] = $firm_list->result->items[$i]->name;
-                $list[$i]['address'] = $firm_list->result->items[$i]->address_name;
+		if(array_key_exists('address_name', $firm_list->result->items[$i])){
+                	$list[$i]['address'] = $firm_list->result->items[$i]->address_name;
+		}
             }
             return $list;
         }
