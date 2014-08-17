@@ -20,7 +20,7 @@ class m140811_091559_init_db extends CDbMigration
             'username' => 'text',
             'password' => 'text',
             'email' => 'text',
-            'red_date' => 'date',
+            'reg_date' => 'date',
             'visit_date' => 'date'
         ));
         $this->createTable('firm', array(
@@ -38,8 +38,8 @@ class m140811_091559_init_db extends CDbMigration
 
 	public function safeDown()
 	{
-        $this->dropTable('user');
         $this->dropTable('firm');
+        $this->dropTable('user');
         echo 'Migration down complete';
         return true;
 	}
