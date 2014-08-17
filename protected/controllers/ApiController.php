@@ -13,6 +13,7 @@ class ApiController extends Controller
 
     private function find_db($line){
         $connection = Yii::app()->db;
+	$sql = '';
         $firms = $connection->createCommand()
             ->select(array('id', 'name', 'address', 'latitude', 'longitude'))
             ->from('firm')
@@ -46,7 +47,7 @@ class ApiController extends Controller
      */
     private function remove_hash(&$id){
         $result_array = explode('_', $id);
-	return $result_array[0];
+	return (int)$result_array[0];
     }
 
     private function find_api($line){
@@ -66,9 +67,10 @@ class ApiController extends Controller
             for ($i = 0; $i < $count; $i++){
                 $current_elem = &$firm_list->result->items[$i];
                 $list[$i]['id'] = $this->remove_hash($current_elem->id);
-                $this->set_array_value($list[$i], 'point', $current_elem, 'point');
                 $this->set_array_value($list[$i], 'name', $current_elem, 'name');
                 $this->set_array_value($list[$i], 'address', $current_elem, 'address_name');
+                $this->set_array_value($list[$i], 'latitude', $current_elem->point, 'lat');
+		$this->set_array_value($list[$i], 'longitude', $current_elem->point, 'lon');
                 
 /*
                 $list[$i]['id'] = $this->remove_hash($firm_list->result->items[$i]->id);
