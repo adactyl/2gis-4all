@@ -13,17 +13,16 @@ class ApiController extends Controller
 
     private function find_db($line){
         $connection = Yii::app()->db;
-	$sql = '';
         $firms = $connection->createCommand()
             ->select(array('id', 'name', 'address', 'latitude', 'longitude'))
             ->from('firm')
             ->where("position(:line in lower(name)) + position(:line in lower(address)) > 0",
                 array(':line' => mb_strtolower($line, 'utf-8')))
             ->queryAll();
-	foreach($firms as &$firm){
-		$firm['from'] = 'db';
-	}
-	unset($firm);
+	    foreach($firms as &$firm){
+		    $firm['from'] = 'db';
+	    }
+	    unset($firm);
         return $firms;
     }
 
@@ -74,7 +73,7 @@ class ApiController extends Controller
                 $this->set_array_value($list[$i], 'name', $current_elem, 'name');
                 $this->set_array_value($list[$i], 'address', $current_elem, 'address_name');
                 $this->set_array_value($list[$i], 'latitude', $current_elem->point, 'lat');
-		$this->set_array_value($list[$i], 'longitude', $current_elem->point, 'lon');
+		        $this->set_array_value($list[$i], 'longitude', $current_elem->point, 'lon');
                	$list[$i]['from'] = 'api'; 
             }
             return $list;

@@ -82,7 +82,7 @@ $(document).ready(function() {
         $('#card').show();
         /* получить json */
         var methodParams = {line: searchLine},
-            apiUrl = 'http://178.62.185.163/api/search';
+            apiUrl = 'http://localhost/api/search';
         $.getJSON(apiUrl, methodParams, onSuccessJson);
         return false;
     })
