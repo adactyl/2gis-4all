@@ -20,6 +20,10 @@ class ApiController extends Controller
             ->where("position(:line in lower(name)) + position(:line in lower(address)) > 0",
                 array(':line' => mb_strtolower($line, 'utf-8')))
             ->queryAll();
+	foreach($firms as &$firm){
+		$firm['from'] = 'db';
+	}
+	unset($firm);
         return $firms;
     }
 
@@ -71,17 +75,7 @@ class ApiController extends Controller
                 $this->set_array_value($list[$i], 'address', $current_elem, 'address_name');
                 $this->set_array_value($list[$i], 'latitude', $current_elem->point, 'lat');
 		$this->set_array_value($list[$i], 'longitude', $current_elem->point, 'lon');
-                
-/*
-                $list[$i]['id'] = $this->remove_hash($firm_list->result->items[$i]->id);
-                if($firm_list->result->items[$i]->point != null){
-			        $list[$i]['longitude'] = $firm_list->result->items[$i]->point->lon; //Долгота
-                	$list[$i]['latitude'] = $firm_list->result->items[$i]->point->lat; //Широта
-		        }
-                $list[$i]['name'] = $firm_list->result->items[$i]->name;
-		        if(array_key_exists('address_name', $firm_list->result->items[$i])){
-                	$list[$i]['address'] = $firm_list->result->items[$i]->address_name;
-		        }*/
+               	$list[$i]['from'] = 'api'; 
             }
             return $list;
         }
