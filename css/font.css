@@ -1,0 +1,21 @@
+h2{
+    padding: 9px;
+}
+.font1{
+    font-size: 10px;
+    color: #B4B4AF;
+}
+.font2{
+    font: 24px "Roboto Condensed";
+
+}
+
+.fontAmount{
+    text-align: left;
+    font-size: 16px;
+    color: #999;
+}
+.font3{
+    font: 24px "Roboto Condensed";
+
+}

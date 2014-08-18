@@ -71,40 +71,6 @@ body{
     padding-left:5px ;
 
 }
-
-#card{
-    background: #ffffff;
-    position: fixed;
-    margin-left:20px;
-
-    margin-top:120px;
-    width: 350px;
-    height:78%;
-    background: #f6f2de;
-    border-radius:  5px ;
-
-
-}
-#organization{
-    text-align: left;
-    vertical-align: middle;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    border-radius:  5px ;
-    height: 50px;
-
-}
-#cardField {
-    position: absolute;
-
-    width: 350px;
-    height:90%;
-    box-shadow: 2px 8px 10px 2px rgba(0,0,0,0.5);
-    border-radius:  5px ;
-    padding-top: 20px;
-
-    overflow-x: hidden;
-
-}
 img {
     height: 40px;
     width: 40px;
@@ -113,123 +79,48 @@ img {
     top: 15px;
     left: 13px;
 }
-h2{
-    padding: 9px;
-}
-#cardOpen{
-    width: 350px;
-    height: 738px;
-    margin: 20px;
-    background: #f6f2de ;
-    font-family:  Roboto Condensed;
-    padding: 6px;
-    padding-top: 0px;
-    padding-left: 46px;
-    box-shadow: 0 8px 10px 2px rgba(0,0,0,0.5);
-    position: absolute;
-    left: 120px;
-    top: 104px;
-    border-radius:  5px ;
-}
-.font1{
-    font-size: 10px;
-    color: #B4B4AF;
-}
-.font2{
-    font: 24px "Roboto Condensed";
+
+
+.adminBody{
+    background-image:url('../images/map.jpg')  ;
+    background-repeat: repeat;
+    height: 100%;
+    width: 100%;
 
 }
 
-.fontAmount{
-    text-align: left;
-    font-size: 16px;
-    color: #999;
-}
 
-.close{
-    position: absolute;
-    top: 3px;
-    bottom: 185px;
-    left: 322px;
-    height: 15px;
-    width: 15px;
-    cursor: pointer;
+#content{
+
+    background-color:honeydew ;
+    margin: 30px;
+    height: 930px;
+    padding-left:30px ;
 
 
 }
-.close1{
-    bottom: 90px;
-    left: 320px;
-    height: 15px;
-    width: 15px;
-    cursor: pointer;
+.logoAdmin{
+    width: 200px;
+    height: 100px;
 }
-.littleCard {
-    padding: 10px 15px 12px 0;
-    border-bottom: 1px solid #CFCFCF ;
 
-}
-.littleCard:hover {
-    padding: 10px 15px 12px 0;
-    background: #ADD8E6 ;
-    cursor: pointer;
-}
-.littleCard_address {
 
-    margin: 0 0 6px 48px;
-    display: inline;
-    color: #666;
-    font: 16px/17px Helvetica,Arial;
-}
-.littleCard_icon {
-    position: relative;
-    top: 12px;
-    left: 12px;
-    width: 6px;
-    height: 6px;
-    border-radius: 3px;
-    background: #828282 ;
-}
-.littleCard_name {
-    font: 16px "Roboto Condensed";
-    color: #079;
+.knopka {
+    color: #fff;
     text-decoration: none;
-    position: relative;
-    left: 25px;
-    margin: 0 0 9px 2px;
-    padding-right: 15px;
+    user-select: none;
+    background: rgb(212,75,56);
+    padding: .7em 1.5em;
+    width:180px ;
 }
-
-.cheat{
-    visibility: hidden;
-    position: relative;
+.knopka:hover { background: rgb(232,95,76);
+    width: 230px;
+    height:50px ;
 }
+.knopka:active { background: rgb(152,15,0); }
 
-#cardField::-webkit-scrollbar {
-    width: 1em;
+.cardPrint{
+    position: fixed;
+    left: 200px;
+    top: 20px;
 }
-
-#cardField::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-
-#cardField::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    background-color: gray;
-}
-
-.font3{
-    font: 24px "Roboto Condensed";
-
-}
-.cardError{
-    background-image:url(../images/error.png)  ;
-    background-repeat: no-repeat;
-    background-position: top center;
-    padding: 7px;
-    padding-top: 80px;
-    width: 330px;
-    height:50%;
-   
-}
-
