@@ -19,7 +19,9 @@ var onLittleCardRender = function(element, index, array){
         + '<div class="littleCard_address">' + address + '</div>'
         + '<div class="cheat">' + element.id + '</div></div>');
     if(element.latitude != null && element.longitude != null){
-        DG.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(element.name);
+        var marker = DG.marker([element.latitude, element.longitude]);
+        context[element.id] = {'marker': marker, 'from': element.from};
+        marker.addTo(markers).bindPopup(element.name);
     }
 }
 
@@ -35,25 +37,46 @@ var onLittleCardClick = function(){
     else{
         $('#cardOpen').html('').append('Old. id = ' + $(this).find('.cheat').html());
     }
+    /*
+    var id = $(this).find('.cheat').html();
+    var apiUrl = 'http://localhost/api/fullInfoById',
+    methodParams = {
+        'id': id,
+        'from': context[id].from
+    };
+    $.getJSON(apiUrl, methodParams, function(data){
+    console.log('data was receive: ' + data.name);
+    });
+    */
+}
 
-    /*var apiUrl = 'http://localhost/api/fullInfoById',
-     methodParams = {'id': $(this).find('.cheat').html()};
-     $.getJSON(apiUrl, methodParams, function(data){
-     console.log('data was receive');*/
+var onMouseInLittleCard = function (){
+    context['view'] = map.getCenter();
+    var id = $(this).find('.cheat').html();
+    var marker = context[id].marker;
+    map.setView(marker.getLatLng());
+    marker.openPopup();
+}
+
+var onMouseOutLittleCard = function(){
+    var id = $(this).find('.cheat').html();
+    context[id].marker.closePopup();
+    map.setView(context['view']);
 }
 
 var onSuccessJson = function(data){
-
-
+    /* Удалим запись с количеством */
+    $('.fontAmount').html('');
     /* Удалим старые маркеры с карты */
     markers.removeFrom(map);
+    /* Очистим контекст страницы */
+    context = new Object();
     /* Сбросим маркеры */
     markers = DG.featureGroup();
     /* Удалим старые карточки */
     $('#cardField').html('');
     if(data.length != 0){
         /* Добавим количество найденных записей */
-        $('.fontAmount').html('');
         $('.font2').append('<span class="fontAmount">  ' + data.length  + '</span>');
         /* Рендерим карты, формируем маркеры */
         data.forEach(onLittleCardRender);
@@ -61,6 +84,8 @@ var onSuccessJson = function(data){
         markers.addTo(map);
         /* К новым карточкам добавим обработчик к onClick */
         $('.littleCard').click(onLittleCardClick);
+        $('.littleCard').hover(onMouseInLittleCard, onMouseOutLittleCard);
+
     }
     else{
         /* Выведем сообщение об ошибке */
