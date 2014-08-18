@@ -43,8 +43,7 @@ var onLittleCardClick = function(){
 }
 
 var onSuccessJson = function(data){
-    $('.fontAmount').html('');
-    $('.font2').append('<span class="fontAmount">  ' + data.length  + '</span>');
+
 
     /* Удалим старые маркеры с карты */
     markers.removeFrom(map);
@@ -52,12 +51,22 @@ var onSuccessJson = function(data){
     markers = DG.featureGroup();
     /* Удалим старые карточки */
     $('#cardField').html('');
-    /* Рендерим карты, формируем маркеры */
-    data.forEach(onLittleCardRender);
-    /* Выведем новые маркеры на карту */
-    markers.addTo(map);
-    /* К новым карточкам добавим обработчик к onClick */
-    $('.littleCard').click(onLittleCardClick);
+    if(data.length != 0){
+        /* Добавим количество найденных записей */
+        $('.fontAmount').html('');
+        $('.font2').append('<span class="fontAmount">  ' + data.length  + '</span>');
+        /* Рендерим карты, формируем маркеры */
+        data.forEach(onLittleCardRender);
+        /* Выведем новые маркеры на карту */
+        markers.addTo(map);
+        /* К новым карточкам добавим обработчик к onClick */
+        $('.littleCard').click(onLittleCardClick);
+    }
+    else{
+        /* Выведем сообщение об ошибке */
+        $('#cardField').append('<div class="cardError"><p class="font3"> Увы, мы не знаем ответа на ваш вопрос</p>' +
+            ' <p>Попробуйте другие ключевые слова</p>' + '</div>');
+    }
 
 }
 
