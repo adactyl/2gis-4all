@@ -12,12 +12,15 @@ $(document).ready(function() {
 */
 /* Отрисовка маленькой карточки, вызывается через for Each */
 var onLittleCardRender = function(element, index, array){
+    var address = element.address === null ? 'Отсутствует': element.address;
     $('#cardField').append('<div class="littleCard">'
         + '<div class="littleCard_icon"></div>'
         + '<div class="littleCard_name">' + element.name + '</div>'
-        + '<div class="littleCard_address">' + element.address + '</div>'
+        + '<div class="littleCard_address">' + address + '</div>'
         + '<div class="cheat">' + element.id + '</div></div>');
-    DG.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(element.name);
+    if(element.latitude != null && element.longitude != null){
+        DG.marker([element.latitude, element.longitude]).addTo(markers).bindPopup(element.name);
+    }
 }
 
 /* ToDo: пока что костыль, когда будет готов backend сделать отправку json и рендер большой карточки */
