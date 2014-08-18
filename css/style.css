@@ -230,6 +230,48 @@ h2{
     padding-top: 80px;
     width: 330px;
     height:50%;
-   
 }
 
+.adminBody{
+    background-image:url('../images/map.jpg')  ;
+    background-repeat: repeat;
+    height: 100%;
+    width: 100%;
+
+}
+
+
+#content{
+
+    background-color:honeydew ;
+    margin: 30px;
+    height: 950px;
+    padding-left:30px ;
+
+
+}
+.logoAdmin{
+    width: 200px;
+    height: 100px;
+}
+
+
+.knopka {
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    background: rgb(212,75,56);
+    padding: .7em 1.5em;
+    width:180px ;
+}
+.knopka:hover { background: rgb(232,95,76);
+    width: 230px;
+    height:50px ;
+}
+.knopka:active { background: rgb(152,15,0); }
+
+.cardPrint{
+    position: relative;
+    left: 200px;
+    top: -350px;
+}
