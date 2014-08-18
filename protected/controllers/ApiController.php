@@ -26,6 +26,25 @@ class ApiController extends Controller
         return $firms;
     }
 
+    public function actionFullInfoById($id){
+        $list = array();
+        $url="http://catalog.api.2gis.ru/2.0/catalog/branch/get?id=".$id."&key=rubdmw6768";
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        $firm_list = curl_exec($ch);
+        $firm_list=json_decode($firm_list);
+        curl_close($ch);
+        if($firm_list->meta->code==200){
+            $list['name']=$firm_list->result->items[0]->name;
+            $list['address']=$firm_list->result->items[0]->address_name;
+            $list['contacts']=$firm_list->result->items[0]->contact_groups;
+            $list['time']=$firm_list->result->items[0]->schedule;
+        }
+        $this->renderJSON($list);
+    }
+
+
     /** Функция self-assignment. Не позволяет обратиться к несуществующему полю.
      * В случае если поле не существует, то записывает в ссответствующее поле
      * левостороннего массива NULL.
