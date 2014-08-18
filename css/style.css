@@ -11,8 +11,8 @@ body{
 }
 
 #searchForm {
-    margin-left:64px;
-    margin-top:25px;
+    margin-left:20px;
+    margin-top:20px;
     position: fixed;
     z-index: 5;
     background:#454543;
@@ -75,7 +75,8 @@ body{
 #card{
     background: #ffffff;
     position: fixed;
-    margin-left:64px;
+    margin-left:20px;
+
     margin-top:120px;
     width: 350px;
     height:78%;
@@ -136,7 +137,7 @@ h2{
 }
 .font2{
     font: 24px "Roboto Condensed";
-;
+
 }
 
 .fontAmount{
@@ -215,4 +216,20 @@ h2{
 #cardField::-webkit-scrollbar-thumb {
     border-radius: 6px;
     background-color: gray;
+}
+
+.font3{
+    font: 24px "Roboto Condensed";
+
+}
+.cardError{
+    padding: 7px;
+    width: 350px;
+    height:50%;
+/*  outline: 1px solid darkgreen;*/
+}
+.imgError{
+    margin-left: 130px;
+    height: 50px;
+    width: 50px;
 }
