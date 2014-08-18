@@ -36,6 +36,8 @@ class ApiController extends Controller
         $firm_list=json_decode($firm_list);
         curl_close($ch);
         if($firm_list->meta->code==200){
+            $list['name']=$firm_list->result->items[0]->name;
+            $list['address']=$firm_list->result->items[0]->address_name;
             $list['contacts']=$firm_list->result->items[0]->contact_groups;
             $list['time']=$firm_list->result->items[0]->schedule;
         }
