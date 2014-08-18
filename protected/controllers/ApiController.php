@@ -25,8 +25,7 @@ class ApiController extends Controller
 	    unset($firm);
         return $firms;
     }
-
-    public function actionFullInfoById($id){
+    public function  InfoForAPI($id){
         $list = array();
         $url="http://catalog.api.2gis.ru/2.0/catalog/branch/get?id=".$id."&key=rubdmw6768";
         $ch = curl_init();
@@ -36,13 +35,37 @@ class ApiController extends Controller
         $firm_list=json_decode($firm_list);
         curl_close($ch);
         if($firm_list->meta->code==200){
-            $list['name']=$firm_list->result->items[0]->name;
-            $list['address']=$firm_list->result->items[0]->address_name;
-            $list['contacts']=$firm_list->result->items[0]->contact_groups;
-            $list['time']=$firm_list->result->items[0]->schedule;
+            $elem = &$firm_list->result->items[0];
+            $this->set_array_value($list, 'name', $elem, 'name');
+            $this->set_array_value($list, 'address', $elem, 'address_name');
+            $this->set_array_value($list, 'contacts', $elem, 'contact_groups');
+            $this->set_array_value($list, 'timetable', $elem, 'schedule');
         }
         $this->renderJSON($list);
+
     }
+
+    public function  InfoForDB($id){
+        $connection = Yii::app()->db;
+        $info = $connection->createCommand()
+            ->select(array('id', 'name', 'address', 'contacts', 'timetable'))
+            ->from('firm')
+            ->where("id=:id",
+                array(':id' => $id))
+            ->queryRow();
+        $this->renderJSON($info);
+
+    }
+    public function actionFullInfoById($id, $from){
+        if ($from=='db'){
+            $this->InfoForDB($id);
+        }
+        if ($from=='API'){
+            $this->InfoForAPI($id);
+        }
+
+    }
+
 
 
     /** Функция self-assignment. Не позволяет обратиться к несуществующему полю.
