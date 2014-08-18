@@ -11,7 +11,7 @@ $this->pageTitle=Yii::app()->name;
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo-2gis.png">
 
                     <input type="text"  name="search"
-                           id="searchInput"  autofocus  placeholder="Введите организацию либо адрес"
+                           id="searchInput"  autofocus  placeholder="Введите организацию"
                            autocomplete="off"
                            maxlength="500"  pattern="[0-9-A-Za-zА-Яа-яЁё\s]{3,}"
                            title="Минимальное число символов: 3. Разрешены только буквы и цифры.">
