@@ -19,8 +19,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full" data-id="dgLoader"></script>
     <script type="text/javascript">
-    var map, markers, m;
-
+    var map, markers, context;
+    context = new Object();
     DG.then(function () {
     map = DG.map('map', {
             "center": [55.00,82.94],

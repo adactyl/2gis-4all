@@ -42,7 +42,6 @@ class ApiController extends Controller
             $this->set_array_value($list, 'timetable', $elem, 'schedule');
         }
         $this->renderJSON($list);
-
     }
 
     public function  InfoForDB($id){
@@ -50,17 +49,16 @@ class ApiController extends Controller
         $info = $connection->createCommand()
             ->select(array('id', 'name', 'address', 'contacts', 'timetable'))
             ->from('firm')
-            ->where("id=:id",
-                array(':id' => $id))
+            ->where("id=:id", array(':id' => $id))
             ->queryRow();
         $this->renderJSON($info);
-
     }
+
     public function actionFullInfoById($id, $from){
         if ($from=='db'){
             $this->InfoForDB($id);
         }
-        if ($from=='API'){
+        else if ($from=='api'){
             $this->InfoForAPI($id);
         }
 
