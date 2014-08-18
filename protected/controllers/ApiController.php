@@ -37,6 +37,10 @@ class ApiController extends Controller
      * @return void
      */
     private function set_array_value(&$left_array, $left_key, &$right_array, $right_key){
+        if($right_array == null){
+            $left_array[$left_key] = null;
+            return;
+        }
         if(array_key_exists($right_key, $right_array) == false){
             $left_array[$left_key] = null;
         }
