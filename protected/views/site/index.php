@@ -31,8 +31,19 @@ $this->pageTitle=Yii::app()->name;
                     </div>
                     <div id="cardField">
                     </div>
+<div class="cardError">
+    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/error.png" class="imgError">
+
+    <p class="font3"> Увы, мы не знаем ответа на ваш вопрос</p>
+
+    <p>Попробуйте другие ключевые слова</p>
+</div>
+
 
                 </div>
+
+
+
 
 
 
