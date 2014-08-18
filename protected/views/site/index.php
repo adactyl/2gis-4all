@@ -31,16 +31,6 @@ $this->pageTitle=Yii::app()->name;
                     </div>
                     <div id="cardField">
                     </div>
-<div class="cardError">
-
-
-
-    <p class="font3"> Увы, мы не знаем ответа на ваш вопрос</p>
-
-    <p>Попробуйте другие ключевые слова</p>
-</div>
-
-
 </div>
 
 
