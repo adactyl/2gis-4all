@@ -1,15 +1,17 @@
-/*
- * Example
-$(document).ready(function() {
-    $('#searchForm').submit(function() {
-        $.getJSON('http://localhost/api/search', {}, function(data) {
-            $('#cardField ').html('').append(data.name + '<br/>').append(data.address);
-        });
-        return false;
-    })
-
-});
-*/
+var contactType = {
+    'email': 'E-mail',
+    'website': 'Веб-сайт',
+    'phone': 'Телефон',
+    'fax': 'Телефон',
+    'icq': 'ICQ',
+    'jabber': 'Jabber',
+    'skype': 'Skype',
+    'vkontakte': 'ВКонтакте',
+    'twitter': 'Twitter',
+    'instagram': 'Instagram',
+    'facebook': 'Facebook',
+    'pobox': 'P.O.Box'
+};
 /* Отрисовка маленькой карточки, вызывается через for Each */
 var onLittleCardRender = function(element, index, array){
     var address = element.address === null ? 'Отсутствует': element.address;
@@ -28,16 +30,8 @@ var onLittleCardRender = function(element, index, array){
 /* ToDo: пока что костыль, когда будет готов backend сделать отправку json и рендер большой карточки */
 /* Обработчик при нажатии на маленькую карточку */
 var onLittleCardClick = function(){
-    if($('body').find('#cardOpen').length === 0){
-        $('body').append('<div id="cardOpen">New. id = ' + $(this).find('.cheat').html() + '</div>');
-        $('#cardOpen').click(function(){
-            this.remove();
-        });
-    }
-    else{
-        $('#cardOpen').html('').append('Old. id = ' + $(this).find('.cheat').html());
-    }
-    /*
+
+
     var id = $(this).find('.cheat').html();
     var apiUrl = 'http://localhost/api/fullInfoById',
     methodParams = {
@@ -45,9 +39,24 @@ var onLittleCardClick = function(){
         'from': context[id].from
     };
     $.getJSON(apiUrl, methodParams, function(data){
-    console.log('data was receive: ' + data.name);
+        console.log('data was receive: ' + data.name);
+        if($('body').find('#cardOpen').length === 0){
+            $('body').append('<div id="cardOpen">New. id = ' + id + '</div>');
+            $('#cardOpen').click(function(){
+                this.remove();
+            });
+        }
+        else{
+            $('#cardOpen').html('').append('Old. id = ' + id);
+        }
+        var contacts = data.contacts[0].contacts[1];
+        $('#cardOpen').append('<p class="font2">' + data.name + '</p>' +
+            '<p> Адрес: ' + data.address + '</p> ' +
+            '<p>Контакты:</p>' +
+            '<p>' + contactType[contacts.type] + ': ' + contacts.value + '</p>'
+            );
     });
-    */
+
 }
 
 var onMouseInLittleCard = function (){
