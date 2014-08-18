@@ -1,0 +1,6 @@
+create database ;
+create user admin with password 'admin';
+grant all privileges on database  to admin;
+create database gis_test;
+create user admin with password 'admin';
+grant all privileges on database gis_test to admin;

@@ -19,19 +19,22 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full" data-id="dgLoader"></script>
     <script type="text/javascript">
-    var map, markers;
+    var map, markers, m;
 
     DG.then(function () {
     map = DG.map('map', {
             "center": [55.00,82.94],
-            "zoom": 12
+            "zoom": 12,
+            "fullscreenControl": false,
+            "zoomControl": false
         }
     );
+        DG.control.zoom({position:'topright'}).addTo(map);
     markers = DG.featureGroup();
     //DG.control.location({position: 'bottomright'}).addTo(map);
     DG.control.scale().addTo(map);
-    DG.control.Fullscreen().removeFrom(map);
-    DG.control.Zoom().setPosition('topright');
+    //DG.control.Fullscreen().removeFrom(map);
+    //DG.control.Zoom().setPosition('topright');
     //DG.control.ruler({position: 'bottomleft'}).addTo(map);
     });
     </script>
