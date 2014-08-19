@@ -156,3 +156,10 @@ img {
 .second_side {
     transform: rotateY(180deg);
 }
+
+.Formlog{
+    padding-top: 30px;
+    margin:  auto;
+    width: 200px;
+    height: 100px;
+}
