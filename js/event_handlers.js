@@ -87,7 +87,7 @@ define( "event_handlers",
                 $('#cardOpen').append('<p class="font2">' + data.name + '</p>' +
                     '<p> Адрес: ' + data.address + '</p> ' +
                     '<p>Контакты:</p>' +
-                    '<p>' + helpers.getContactType[contacts.type] + ': ' + contacts.value + '</p>'
+                    '<p>' + helpers.getContactType()[contacts.type] + ': ' + contacts.value + '</p>'
                 );
             });
         }
