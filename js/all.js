@@ -39,17 +39,24 @@ var onLittleCardClick = function(){
         'from': context[id].from
     };
     $.getJSON(apiUrl, methodParams, function(data){
-        console.log('data was receive: ' + data.name);
+        /* Проверим, существует ли большая карточка */
         if($('body').find('#cardOpen').length === 0){
-            $('body').append('<div id="cardOpen">New. id = ' + id + '</div>');
-            $('#cardOpen').click(function(){
-                this.remove();
-            });
+            /* Если не существует, то добавим её */
+            $('body').append('<div id="cardOpen"></div>');
         }
         else{
-            $('#cardOpen').html('').append('Old. id = ' + id);
+            /* Если карточка уже существует, очистить её содержимое. */
+            $('#cardOpen').html('');
         }
-        var contacts = data.contacts[0].contacts[1];
+
+        /* Добавим крестик */
+        $('#cardOpen').append('<img src="../images/cross.png" class="close">');
+        /* При нажатии на крестик закрыть большую карточку */
+        $('#cardOpen').find('.close').click(function(){
+            $('#cardOpen').remove();
+        });
+
+        var contacts = data.contacts[0].contacts[0];
         $('#cardOpen').append('<p class="font2">' + data.name + '</p>' +
             '<p> Адрес: ' + data.address + '</p> ' +
             '<p>Контакты:</p>' +
@@ -114,7 +121,6 @@ $(document).ready(function() {
         /* при нажатии на крестик спрячем окно поиска */
         $('#card').hide();
     });
-
 
     //onClick button "Search"
     $('#searchForm').submit(function() {
