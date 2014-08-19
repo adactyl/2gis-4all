@@ -9,7 +9,9 @@ $ service nginx restart
 $ exit
 ```
 
-[demo](http://178.62.185.163/)
+Demo
+=========
+http://178.62.185.163/
 
 TestRailAcc: [щелк](http://uk-jenk-summer01/testrail/index.php?/projects/overview/1)
 
