@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/card.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/font.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<body class="adminBody">
+
+
+<div id="content">
+<p class="fontLog">Пожалуйста авторизируйтесь!</p>
+<form class="Formlog" method="GET" action="admin.html">
+
+    <input type="text" name="login" placeholder="Логин" pattern="[0-9-A-Za-zА-Яа-яЁё\s]{3,}"
+           title="Минимальное число символов: 3. Разрешены только буквы и цифры."><br>
+    <input type="text"  name="password" placeholder="Пароль" pattern="[0-9-A-Za-zА-Яа-яЁё\s]{3,}"
+           title="Минимальное число символов: 3. Разрешены только буквы и цифры."><br>
+<input type="submit" name="submitLog" >
+</form>
+
+
+</div>
+</body>
+</html>
