@@ -11,6 +11,33 @@ class ApiController extends Controller
         $this->renderJSON($results);
     }
 
+    public function actionAddFirmInfo($list){
+        $list=json_decode($list);
+        $name=$list->name;
+        $address=$list->address;
+        $timetable=$list->timetable;
+        $longitude=$list->longitude;
+        $latitude=$list->latitude;
+        $contacts=$list->contacts;
+        $sql="INSERT INTO firm (name, address, timetable, longitude, latitude, contacts)
+         VALUES ('$name', '$address', '$timetable', '$longitude', '$latitude', '$contacts')";
+        $connection=Yii::app()->db;
+        $command=$connection->CreateCommand($sql);
+        $command->execute();
+    }
+
+    public function actionTestbase($name, $email, $telephone, $time, $address,$lon, $lat){
+        $time=array('sun' => "$time", 'mon' => "$time");
+        $contacts=array('email' => "$email", "$telephone");
+        $time=json_encode($time);
+        $contacts=json_encode($contacts);
+        $info=array('name'=> "$name", 'address' => "$address", 'timetable' => "$time",
+            'longitude' => "$lon", 'latitude' => "$lat", 'contacts' => "$contacts");
+        $info=json_encode($info);
+        $this->actionAddFirmInfo($info);
+    }
+
+
     private function find_db($line){
         $connection = Yii::app()->db;
         $firms = $connection->createCommand()
