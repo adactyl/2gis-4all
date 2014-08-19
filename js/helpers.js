@@ -4,21 +4,21 @@
 define( "helpers",
     function(){
         /**
-         * Имя
+         * Имя модуля
          */
         function getName(){
             alert('Helpers');
         }
         /**
          * Соответствие контактов для webapi 2gis.
-         * @returns {{email: string, website: string, phone: string, fax: string, icq: string, jabber: string, skype: string, vkontakte: string, twitter: string, instagram: string, facebook: string, pobox: string}}
+         * @returns Соответсвия между типом контакта и его символьным представлением
          */
         function getContactType(){
             return {
                 'email': 'E-mail',
                 'website': 'Веб-сайт',
                 'phone': 'Телефон',
-                'fax': 'Телефон',
+                'fax': 'Факс',
                 'icq': 'ICQ',
                 'jabber': 'Jabber',
                 'skype': 'Skype',

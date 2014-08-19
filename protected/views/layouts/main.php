@@ -19,7 +19,13 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script data-main="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js" src="http://requirejs.org/docs/release/2.1.14/minified/require.js"></script>
+    <script src="http://requirejs.org/docs/release/2.1.14/minified/require.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/start.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/helpers.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/event_handlers.js"></script>
+
+
     <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full" data-id="dgLoader"></script>
     <script type="text/javascript">
     var map, markers, context;
